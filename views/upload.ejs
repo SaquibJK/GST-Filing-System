@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head', {title: "Upload File" }) %>
+        <link rel="stylesheet" href="/css/upload.css">
+        <script defer src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+</head>
+
+<body>
+
+<div class="container-wrapper">
+    <div class="upload-form-container">
+        <div class="container">
+            <h3 class="text-center mb-3">GST Filing</h3>
+            <form action="/user/upload" method="POST" enctype="multipart/form-data" id="uploadForm">
+                <div class="form-group">
+                    <label for="file" class="mb-3">Select Excel File:</label>
+                    <input type="file" class="form-control-file" id="file-input" name="file" accept=".xls,.xlsx"
+                        required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Upload">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="data-table-container">
+        <table class="table table-striped" id="excel-table">
+            
+        </table>
+    </div>
+</div>
+
+    <!-- Script Tags -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="/js/uploads.js"></script>
+</body>
+
+</html>

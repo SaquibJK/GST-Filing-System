@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head', {title: "Admin Dashboard" }) %>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    /* Custom CSS */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .card-columns {
+        column-count: 2;
+        column-gap: 20px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-body {
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-title {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .card-buttons {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        margin-right: 10px;
+    }
+
+    .card-columns {
+        column-count: auto;
+        /* or specify a fixed number if desired */
+        column-gap: 1rem;
+        /* adjust as needed */
+    }
+
+    .card {
+        display: inline-block;
+        width: auto;
+    }
+
+    .delete-btn {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .delete-btn:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+
+    .fa-trash-alt {
+        margin-right: 5px;
+    }
+
+    .fa-eye {
+        margin-right: 5px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-3 mb-4">Files</h1>
+        <div class="card-columns">
+            <% files.forEach((file)=> { %>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= file.fileName %>
+                        </h5>
+                        <div class="card-buttons">
+                            <a href="<%= file.downloadUrl %>" class="btn btn-primary">
+                                <i class="fas fa-file-download"></i> Download
+                            </a>
+                            <button type="submit" class="btn btn-danger delete-btn" data-file-id="<%= file.id %>">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+    <script>
+        // Add event listeners to the delete buttons
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', async (event) => {
+                const fileId = event.target.dataset.fileId;
+
+                try {
+                    const response = await fetch(`/admin/deleteFile/${fileId}`, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        // File deleted successfully, remove the card from the UI
+                        console.log("Deleted Successfully");
+                        window.location.replace('/admin/dashboard');
+                    } else {
+                        console.error('Error deleting file:', response.status);
+                    }
+                } catch (error) {
+                    console.error('Error deleting file:', error);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
