@@ -16,8 +16,10 @@ const registerUser = async (req, res) => {
   }
 
   const emailExist = await User.findOne({ email: req.body.email });
-  if (emailExist)
-    return res.status(400).send("Email Already Exists, Try Logging In");
+  if (emailExist) {
+      const errorMessage = "Email Already Exists, Try Logging In";
+    return res.render("Register", { errorMessage });
+  }
 
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
