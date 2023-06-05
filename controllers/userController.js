@@ -41,7 +41,7 @@ const renderLoginPage = (req, res) => {
 };
 
 const renderUploadPage = (req, res) => {
-  res.render("Upload");
+  res.render("upload");
 };
 
 const handleFileUpload = async (req, res) => {
