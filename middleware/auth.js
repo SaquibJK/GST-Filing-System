@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const verifyRefreshToken = require("../utils/verifyRefreshToken");
 
 const auth = (req, res, next) => {
   const token = req.header("auth-token") || req.cookies["auth-token"];
@@ -9,7 +10,7 @@ const auth = (req, res, next) => {
     req.user = verified;
     next();
   } catch (err) {
-    res.status(400).send("Invalid Token");
+    res.status(403).send("Invalid Token");
   }
 };
 

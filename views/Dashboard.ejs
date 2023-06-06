@@ -90,7 +90,7 @@
                             <%= file.fileName %>
                         </h5>
                         <div class="card-buttons">
-                            <a href="<%= file.downloadUrl %>" class="btn btn-primary">
+                            <a href="/admin/dashboard/files/<%= file.id %>" class="btn btn-primary">
                                 <i class="fas fa-file-download"></i> Download
                             </a>
                             <button type="submit" class="btn btn-danger delete-btn" data-file-id="<%= file.id %>">

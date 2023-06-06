@@ -1,0 +1,14 @@
+### Creating a Admin User ###
+
+POST http://localhost:3005/auth/register
+Content-Type: application/json
+
+{
+    "email": "admin59@example.com",
+    "password": "BigrandomPass@12",
+    "roles": ["admin"]
+}
+
+### Testing Excle to Json ###
+
+GET http://localhost:3005/admin/dashboard/files

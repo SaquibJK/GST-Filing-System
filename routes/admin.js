@@ -4,9 +4,28 @@ const roleCheck = require("../middleware/roleCheck");
 const adminController = require("../controllers/adminController");
 
 // Render admin dashboard
-adminRouter.get("/dashboard", jwtAuth, roleCheck(["admin"]), adminController.getDashboard);
+adminRouter.get(
+  "/dashboard",
+  jwtAuth,
+  roleCheck(["admin"]),
+  adminController.getDashboard
+);
 
 // Delete File with FileId
-adminRouter.delete("/deleteFile/:fileId", jwtAuth, roleCheck(["admin"]), adminController.deleteFile);
+adminRouter.delete(
+  "/deleteFile/:fileId",
+  jwtAuth,
+  roleCheck(["admin"]),
+  adminController.deleteFile
+);
+
+// Open Excel File
+adminRouter.get(
+  "/dashboard/files/:fileId",
+  jwtAuth,
+  roleCheck(["admin"]),
+  adminController.renderExcelFile
+);
+
 
 module.exports = adminRouter;
