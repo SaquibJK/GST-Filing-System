@@ -4,9 +4,8 @@ POST http://localhost:3005/auth/register
 Content-Type: application/json
 
 {
-    "email": "admin59@example.com",
-    "password": "BigrandomPass@12",
-    "roles": ["admin"]
+    "email": "newGuy54@example.com",
+    "password": "BigrandomPass@12"
 }
 
 ### Testing Excle to Json ###

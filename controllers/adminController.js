@@ -74,7 +74,7 @@ try {
   const workbook = xlsx.read(excelData, { type: "buffer" });
   const worksheet = workbook.Sheets[workbook.SheetNames[0]];
   const jsonData = xlsx.utils.sheet_to_json(worksheet);
-
+  console.log(jsonData);
   return res.render("File", {data: jsonData})
 } catch (error) {
   console.error(error);

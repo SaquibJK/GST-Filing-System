@@ -1,0 +1,82 @@
+    /* Table Styles */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        padding: 2rem;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    /* Alternating Row Colors */
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Hover Effect */
+    tr:hover {
+        background-color: #e5e5e5;
+    }
+
+    /* Form Styles */
+    .form-container {
+        margin-top: 20px;
+        padding: 2rem;
+    }
+
+    .form-group {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group select,
+    .form-group input {
+        padding: 5px;
+        width: 150px;
+    }
+
+    .form-group .btn {
+        padding: 5px 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin: .5rem 0 .5rem 0;
+    }
+
+    .form-group .dash {
+        background-color: #219fe7 !important;
+    }
+
+      .result-container {
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    padding: 10px;
+  }
+
+  .result-message {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
