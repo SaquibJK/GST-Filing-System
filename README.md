@@ -9,3 +9,10 @@ https://gst-filing.onrender.com
 
 https://github.com/SaquibJK/GST-Filing-System/assets/107880027/bc0c57fc-7cc4-4a48-a423-8ddc3fea90f2
 
+# Field Operations
+
+
+https://github.com/SaquibJK/GST-Filing-System/assets/107880027/834c16d0-6d4e-4cec-9b3b-db4ad29aafb5
+
+
+
